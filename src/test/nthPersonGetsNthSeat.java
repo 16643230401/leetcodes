@@ -18,7 +18,6 @@ public class nthPersonGetsNthSeat {
     //P(n - i) = 1/(i + 2) + (i + 1)/(i + 2) * P(n - i - 1);
     //if (n - i) < 2 : P(n - i) = 1 / n - i;
 
-
     public static void main(String[] args) {
         nthPersonGetsNthSeat nthPersonGetsNthSeat = new nthPersonGetsNthSeat();
         System.out.println(nthPersonGetsNthSeat.nthPersonGetsNthSeat(3));
@@ -32,8 +31,5 @@ public class nthPersonGetsNthSeat {
         if(n - i <= 2) return (double)1 / n - i;
 
         return 1/(i + 2) + (i + 1)/(i + 2) * p(n, i + 1);
-
     }
-
-
 }
