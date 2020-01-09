@@ -8,8 +8,8 @@ public class isValid {
 
     public static void main(String[] args) {
         isValid isValid = new isValid();
-//        System.out.println(isValid.isValid("([)]"));
-        System.out.println('{' + 1);
+        System.out.println(isValid.isValid_Formal("([)]"));
+//        System.out.println('{' + 1);
     }
 
     public boolean isValid(String s) {
