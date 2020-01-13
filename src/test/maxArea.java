@@ -13,6 +13,9 @@ public class maxArea {
         System.out.println(maxArea.maxArea(new int[]{1,8,6,2,5,4,8,3,7}));
     }
 
+    /**
+     * 双指针，替换短板
+     */
     public int maxArea(int[] height) {
         if(height.length < 2) return 0;
         int left = 0;
