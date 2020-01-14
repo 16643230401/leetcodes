@@ -40,4 +40,29 @@ public class minFlips {
         }
         return ans;
     }
+
+    public int minFlips2(int a, int b, int c) {
+        int count = 0;
+        while (c > 0 || a > 0 || b > 0) {
+            int tempC = c & 1;
+            int tempA = a & 1;
+            int tempB = b & 1;
+            if (tempC != (tempA | tempB)) {
+                if (tempC == 0) {
+                    count += (tempA == tempB ? 2 : 1);
+                } else {
+                    count += 1;
+                }
+            }
+            c = c >> 1;
+            a = a >> 1;
+            b = b >> 1;
+        }
+        return count;
+    }
+
+//    作者：user8300R
+//    链接：https://leetcode-cn.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/solution/xiang-you-wei-yi-qu-ge-wei-zuo-huo-yun-suan-by-use/
+//    来源：力扣（LeetCode）
+//    著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 }
