@@ -22,12 +22,13 @@ public class removeLeafNodes {
     }
 
     public boolean isLeave(TreeNode node) {
-         if(node.left == null && node.right == null)
-             return true;
-         return false;
+        if(node.left == null && node.right == null)
+            return true;
+        return false;
     }
     public TreeNode removeLeafNodes(TreeNode root, int target) {
         deepFirst(root, target);
+        if(isLeave(root) && root.val == target) return null;
         return root;
     }
 
@@ -35,10 +36,10 @@ public class removeLeafNodes {
         if(root != null) {
             deepFirst(root.left, target);
             deepFirst(root.right, target);
-            if(root.left == null || (isLeave(root.left) && root.left.val == target)) {
+            if(root.left != null && (isLeave(root.left) && root.left.val == target)) {
                 root.left = null;
             }
-            if(root.right == null || (isLeave(root.right) && root.right.val == target)) {
+            if(root.right != null && (isLeave(root.right) && root.right.val == target)) {
                 root.right = null;
             }
         }
