@@ -2,9 +2,12 @@ package WeekMAtch20200119;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 /**
- * <p>最小水龙头数量</p>
+ * <p>1326. 灌溉花园的最少水龙头数目</p>
+ *
+ * 贪心算法
  *
  * @Author : bairuoyu
  * @Date : 2020-01-19
@@ -18,40 +21,27 @@ public class minTaps {
     }
 
     public int minTaps(int n, int[] ranges) {
-        int ans = 0;
-        List<Integer> list = new ArrayList<>(ranges.length - 1);
-        for (int i = 0; i < ranges.length; i++) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < ranges.length - 1; i++) {
             list.add(0);
         }
-        ans = dynamicProcessing(list, n, ranges, 0);
+        for (int i = 0; i < ranges.length; i++) {
+            int leftBound = Math.max(0, i - ranges[i]);
+            int rightBound = Math.min(n - 1, i + ranges[i] - 1);
+            for (int j = leftBound; j <= rightBound; j++) {
+                list.set(j, Math.max(rightBound,list.get(i)));
+            }
+        }
+
+        int ans = 0;
+        int temp = 0;
+        while (temp < n) {
+            if(list.get(temp) == 0) return -1;
+            temp = list.get(temp) + 1;
+            ans += 1;
+        }
+
         return ans;
     }
 
-    public boolean isFull(List<Integer> list) {
-        int sum = 0;
-        for (Integer integer : list) {
-            sum += integer;
-        }
-        if(sum == list.size()) return true;
-        return false;
-    }
-
-
-    public int dynamicProcessing(List<Integer> list, int n, int[] ranges, int minSum) {
-        if(isFull(list)) return minSum;
-        if(n == 0 ) return -1;
-        List<Integer> list1 = new ArrayList<>(list);
-        List<Integer> list2 = new ArrayList<>(list);
-        for (int i = n - 1; i > 0 && i > n - 1 - ranges[n]; i--) {
-            list1.set(i, 1);
-        }
-        for (int i = n; i < list.size() && i < n + ranges[n]; i++) {
-            list1.set(i, 1);
-        }
-        int a = dynamicProcessing(list2, n - 1, ranges, minSum);
-        System.out.println(a);
-        int b = dynamicProcessing(list1, n - 1 , ranges, minSum + 1);
-        System.out.println(b);
-        return Math.min(a,b) == -1 ? Math.max(a,b) : -1;
-    }
 }

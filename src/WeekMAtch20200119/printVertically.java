@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p>竖直打印</p>
+ * <p>1324. 竖直打印单词</p>
  *
  * @Author : bairuoyu
  * @Date : 2020-01-19

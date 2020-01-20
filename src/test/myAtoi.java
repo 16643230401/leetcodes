@@ -3,6 +3,10 @@ package test;
 
 public class myAtoi {
 
+    /**
+     * 	8.字符串转换整数 (atoi)
+     * @param args
+     */
     public static void main(String[] args) {
         myAtoi myAtoi = new myAtoi();
         System.out.println(myAtoi.myAtoi("-2147483649"));

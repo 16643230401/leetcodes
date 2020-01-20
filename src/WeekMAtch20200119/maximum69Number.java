@@ -1,7 +1,7 @@
 package WeekMAtch20200119;
 
 /**
- * <p>69反转</p>
+ * <p>1323. 6 和 9 组成的最大数字</p>
  *
  * @Author : bairuoyu
  * @Date : 2020-01-19
