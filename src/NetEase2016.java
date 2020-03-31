@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * @author ClarenceBai
  * @version 1.0
@@ -5,29 +7,33 @@
  */
 public class NetEase2016 {
     public static void main(String[] args) {
-
+        NetEase2016 NetEase2016 = new NetEase2016();
+        NetEase2016.Solution();
 
     }
 
-    public int Solution(int[] powers, int sum, int len) {
-        int ans = 0;
+    public int Solution() {
+        Set<Integer[]> set = new HashSet<>();
+        set.add(new Integer[]{3,5,6});
+        set.add(new Integer[]{3,4,7});
+        List<Integer[]> list = new ArrayList<>(set);
 
-        int[][] dp = new int[powers.length][sum + 1];
-        for (int i = 0; i < powers.length; i++) {
-            dp[i][0] = 0;
+        Collections.sort(list, (a, b)->{
+            for (int i = 0; i < 3; i++) {
+                if(a[i] != b[i])
+                    return a[i] - b[i];
+            }
+            return 0;
+        });
+
+        for (Integer[] integers : list) {
+            for (Integer integer : integers) {
+                System.out.print(integer);
+            }
+            System.out.println();
         }
 
-        for (int i = 1; i < sum; i++) {
-            dp[0][i] = powers[0];
-        }
-
-        //dp[p][k] = max(dp[p - 1][k - 1], dp[
-
-
-
-
-
-        return ans;
+        return 0;
     }
 
 
