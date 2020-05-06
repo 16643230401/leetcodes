@@ -53,6 +53,6 @@ public class lengthOfLIS {
         if(left == right) return left;
 //        if(list.get(mid) == e) return -1;
         if(list.get(mid) >= e) return halfFind(list, e, left, mid);//边界处理方式，这里mid没有+1
-        else return halfFind(list, e, mid + 1, right);//边界处理方式，这里mid+1，二者区别主要是要取到较大的一个值
+        else return halfFind(list, e, mid + 1, right);//边界处理方式，这里mid+1，这样处理返回的值是刚好比e大的那个值
     }
 }
