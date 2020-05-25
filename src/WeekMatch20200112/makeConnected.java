@@ -23,6 +23,7 @@ public class makeConnected {
         int[] sz;
         int num;
 
+        //获取根节点
         public int find(int p) {
             if (p != father[p]) {
                 p = find(father[p]);

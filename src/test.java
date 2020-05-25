@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +10,14 @@ import java.util.List;
 public class test {
 
     public static void main(String[] args) {
-        test tt = new test();
-
-        tt.RunTest();
+        String str = "38.kkk";
+        BigDecimal a ;
+        try {
+            a = new BigDecimal(str);
+        } catch (Exception e) {
+            a = new BigDecimal("0.00");
+        }
+        System.out.println(String.valueOf(a.intValue()));
     }
 
     public void RunTest() {
