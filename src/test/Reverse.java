@@ -34,8 +34,8 @@ public class Reverse {
         while (x != 0) {
             //获取x右移之后的余数，并进行判断
             flag = x % 10;
-            if (ans > max / 10 || (ans == max && flag > 7)) return 0;
-            if (ans < min / 10 || (ans == min && flag < -8)) return 0;
+            if (ans > max / 10 || (ans == max / 10 && flag > 7)) return 0;
+            if (ans < min / 10 || (ans == min / 10 && flag < -8)) return 0;
             //ans左移并加上余数
             ans  = ans * 10 + flag;
             //x相应右移

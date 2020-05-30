@@ -1,6 +1,4 @@
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  * @author ClarenceBai
@@ -10,24 +8,12 @@ import java.util.List;
 public class test {
 
     public static void main(String[] args) {
-        String str = "38.kkk";
-        BigDecimal a ;
-        try {
-            a = new BigDecimal(str);
-        } catch (Exception e) {
-            a = new BigDecimal("0.00");
-        }
-        System.out.println(String.valueOf(a.intValue()));
+        int i = 8,j = 3;
+        int num = i / 3 + (j / 3) * 3;
+
+        System.out.println(num);
     }
 
-    public void RunTest() {
-        ArrayList list = new ArrayList();
-
-        list.add(1);
-        list.add("s");
-
-        System.out.println(list);
-    }
 
 
 }
