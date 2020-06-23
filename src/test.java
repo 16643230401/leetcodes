@@ -1,8 +1,4 @@
-import sun.awt.image.ImageWatched;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author ClarenceBai
@@ -12,22 +8,12 @@ import java.util.List;
 public class test {
 
     public static void main(String[] args) {
-        test tt = new test();
+        int i = 8,j = 3;
+        int num = i / 3 + (j / 3) * 3;
 
-        tt.RunTest();
+        System.out.println(num);
     }
 
-    public void RunTest() {
-        ArrayList list = new ArrayList();
-
-        list.add(1);
-        list.add("s");
-
-        LinkedList<String> testList = new LinkedList<>();
-
-
-        System.out.println(list);
-    }
 
 
 }

@@ -7,6 +7,11 @@ package SordToOffer;
  */
 public class offer14 {
 
+    public static void main(String[] args) {
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Long.MAX_VALUE);
+    }
+
     //动态规划（dp[n] = dp[i] * dp[j] ,  其中i + j = n）
     public int cuttingRope(int n) {
         if(n <= 3) return n - 1;
@@ -26,9 +31,30 @@ public class offer14 {
     public int cuttingRope2(int n) {
         int mod = n % 3;
         int pow = n / 3;
-        if(mod == 1) return (int)Math.pow(3, pow - 1) * 4;
-        else if (mod == 2) return (int)Math.pow(3, pow) * 2;
-        else return (int)Math.pow(3, pow);
+        long temp = 1;
+        if(mod == 1) {
+//            (int)Math.pow(3, pow - 1) * 4
+            for (int i = 0; i < pow - 1; i++) {
+                temp = (temp * 3) % 1000000007;
+            }
+            temp = (temp * 4) % 1000000007;
+        }
+        else if (mod == 2){
+//            return (int)Math.pow(3, pow) * 2;
+            for (int i = 0; i < pow; i++) {
+                temp = (temp * 3) % 1000000007;
+            }
+
+            temp = (temp * 2) % 1000000007;
+        }
+        else{
+            for (int i = 0; i < pow; i++) {
+                temp = (temp * 3) % 1000000007;
+            }
+        }
+
+
+        return (int)temp;
     }
 
 
