@@ -1,4 +1,7 @@
+import sun.awt.image.ImageWatched;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -19,6 +22,9 @@ public class test {
 
         list.add(1);
         list.add("s");
+
+        LinkedList<String> testList = new LinkedList<>();
+
 
         System.out.println(list);
     }
