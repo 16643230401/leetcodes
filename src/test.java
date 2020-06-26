@@ -12,6 +12,8 @@ public class test {
         int num = i / 3 + (j / 3) * 3;
 
         System.out.println(num);
+
+        throw new ArrayIndexOutOfBoundsException("4");
     }
 
 
