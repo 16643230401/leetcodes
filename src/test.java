@@ -1,4 +1,8 @@
-
+import java.io.ObjectInputStream;
+import java.math.BigDecimal;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ClarenceBai
@@ -8,14 +12,14 @@
 public class test {
 
     public static void main(String[] args) {
-        int i = 8,j = 3;
-        int num = i / 3 + (j / 3) * 3;
 
-        System.out.println(num);
 
-        throw new ArrayIndexOutOfBoundsException("4");
+
     }
 
 
 
+
+
 }
+
