@@ -32,8 +32,6 @@ public class maxCoins {
             }
         }
 
-
-
         return dp[0][len + 1];
     }
 }
