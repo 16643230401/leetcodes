@@ -33,6 +33,9 @@ public class BD1 {
             else if(input.get(i) > max) {
                 min = input.get(i) - max;
             }
+            else {
+                min = 0;
+            }
 
             max = max + input.get(i);
         }
