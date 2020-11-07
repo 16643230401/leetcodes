@@ -7,7 +7,7 @@ import java.util.Vector;
 /**
  * <p>1326. 灌溉花园的最少水龙头数目</p>
  *
- * 贪心算法
+ * 贪心算法、动态规划
  *
  * @Author : bairuoyu
  * @Date : 2020-01-19
@@ -22,7 +22,7 @@ public class minTaps {
 
     public int minTaps(int n, int[] ranges) {
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < ranges.length - 1; i++) {
+        for (int i = 0; i < ranges.length; i++) {
             list.add(0);
         }
         for (int i = 0; i < ranges.length; i++) {

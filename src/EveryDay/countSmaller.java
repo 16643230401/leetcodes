@@ -1,11 +1,11 @@
 package EveryDay;
 
-import sun.awt.image.ImageWatched;
-
-import java.lang.reflect.Array;
 import java.util.*;
 
 /**
+ *
+ * 树状数组
+ *
  * @author ClarenceBai
  * @version 1.0
  * @date 2020-07-11 20:50
