@@ -1,8 +1,6 @@
 package BaseAlgorithm;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author ClarenceBai
@@ -10,6 +8,15 @@ import java.util.Stack;
  * @date 2020-08-10 22:51
  */
 public class TreeAlgorithm {
+
+
+    class BinNode{
+        int val;
+        BinNode left;
+        BinNode right;
+
+        public BinNode (int val) {this.val = val;}
+    }
 
     class Node {
         public int val;
@@ -67,6 +74,75 @@ public class TreeAlgorithm {
             solutionForpreorder2(root.children.get(i));
         }
     }
+
+
+    /**
+     * 二叉树中序遍历（迭代法）
+     * 每周写一遍加深理解，这个刚开始可能不太好想
+     * 思路：
+     *      左子树弄完，让指针指向空（左子树直接为空，或者最右节点的右节点，因为中序遍历下，原则上每一个节点前驱节点就是左子树中最右节点）
+     *      然后弄右子树，思路一样
+     * @param root
+     * @return
+     */
+    public List<Integer> inorderTraversal(BinNode root) {
+        List<Integer> ans = new ArrayList<>();
+        if(root == null) return ans;
+
+        Stack<BinNode> stack = new Stack<>();
+
+        //刚开始的时候，或者遍历完左子树回到根节点的时候，可能出现栈为空的情况，但是没遍历完
+        //这时候就要依靠root是否为空来判断是否遍历结束
+        while(root != null || !stack.isEmpty()) {
+            //实际上就是深度优先，只不过这种思想下没有记录节点访问情况，节省了空间
+            //先把左节点都入栈
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            //这时候左节点都入栈了，root该null了，root指回栈顶元素（就是当前子树的根节点），保存值之后该弄右边了
+            root = stack.pop();
+            ans.add(root.val);
+            //弄右子树
+            root = root.right;
+        }
+
+        return ans;
+    }
+
+
+    /**
+     * 二叉树后序遍历
+     * @param root
+     * @return
+     */
+    public List<Integer> postorderTraversal(BinNode root) {
+        List<Integer> ans = new ArrayList<>();
+        if(root == null) return ans;
+        Stack<BinNode> stack = new Stack<>();
+        while(root != null || !stack.isEmpty()) {
+            while(root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.peek();
+            if(root.right == null) {
+                BinNode temp = stack.pop();
+                ans.add(temp.val);
+                while(!stack.isEmpty() && stack.peek().right == temp) {
+                    temp = stack.pop();
+                    ans.add(temp.val);
+                }
+                root = null;
+            } else {
+                root = root.right;
+            }
+        }
+
+        long a = 1000000007;
+        return ans;
+    }
+
 
 
 

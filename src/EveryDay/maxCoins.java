@@ -9,6 +9,7 @@ public class maxCoins {
 
 
     /**
+     * 戳气球
      * 蒙了
      * @param nums
      * @return
