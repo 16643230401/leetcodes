@@ -28,8 +28,9 @@ public class test {
     }
 
     public static void main(String[] args) {
-        test t = new test();
-        t.test1();
+//        test t = new test();
+//        t.test1();
+        System.out.println(1^1);
     }
 
     public void test1() {
