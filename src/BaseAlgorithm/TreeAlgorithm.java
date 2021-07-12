@@ -1,5 +1,7 @@
 package BaseAlgorithm;
 
+import apple.laf.JRSUIUtils;
+
 import java.util.*;
 
 /**
@@ -143,6 +145,56 @@ public class TreeAlgorithm {
         return ans;
     }
 
+      public static class TreeNode {
+      int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode() {}
+      TreeNode(int val) { this.val = val; }
+      TreeNode(int val, TreeNode left, TreeNode right) {
+          this.val = val;
+          this.left = left;
+          this.right = right;
+      }
+  }
+
+
+    public static int minDiffInBST(TreeNode root) {
+        if(root == null) return 0;
+        int ans = Integer.MAX_VALUE;
+        Stack<TreeNode> s = new Stack<>();
+        TreeNode temp = root;
+        int prev = ans;
+        while(s.isEmpty() || temp != null) {
+            while (temp != null){
+                s.push(temp);
+                temp = temp.left;
+            }
+
+            temp = s.pop();
+            if(prev == Integer.MAX_VALUE)prev = temp.val;
+            else {
+                ans = Math.min(ans, temp.val - prev);
+                prev = temp.val;
+            }
+
+            temp = temp.right;
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(90);
+        TreeNode r = root;
+        root.left = new TreeNode(69);
+        root = root.left;
+        root.left = new TreeNode(49);
+        root.right = new TreeNode(89);
+        root = root.left;
+        root.right = new TreeNode(52);
+        minDiffInBST(r);
+    }
 
 
 

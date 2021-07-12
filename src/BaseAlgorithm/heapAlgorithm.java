@@ -1,5 +1,7 @@
 package BaseAlgorithm;
 
+import java.util.PriorityQueue;
+
 /**
  * @author ClarenceBai
  * @version 1.0
@@ -23,6 +25,22 @@ public class heapAlgorithm {
         for (int i : heap) {
             System.out.print(i + " ");
         }
+
+
+        /* JDK实现（优先队列） */
+
+
+        // 根据构造函数决定优先级排序，此处为大根堆
+        PriorityQueue<Integer> pq = new PriorityQueue<>((o1, o2) -> o2 - o1);
+        // offer(或者add)操作，堆容量加一，新元素放在堆数组最后一位，然后执行moveUp操作（shiftUp）
+        pq.offer(1);
+        pq.add(2);
+        pq.add(4);
+        pq.offer(3);
+        // poll操作为：堆顶元素移除，堆数组最后一个元素移到对顶，堆容量减一，然后执行moveDown操作（shiftDown）
+        pq.poll();
+
+        System.out.println(pq.toString());
     }
 
     /**
@@ -115,7 +133,6 @@ public class heapAlgorithm {
             MoveDown(heap, 0, i - 1);
         }
     }
-
 
 
 
